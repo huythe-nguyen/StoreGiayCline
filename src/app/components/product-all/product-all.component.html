@@ -1,0 +1,15 @@
+<div class="container"><mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened><app-category></app-category></mat-drawer>
+  <mat-drawer-content>
+   <div>
+     <span>Tất cả sản phẩm</span>
+     <p-dropdown #drop (mouseenter)= "drop.show()" (mouseleave)= "drop.hide()" [options]="sorts" [(ngModel)]="selectedCities" optionLabel="name"></p-dropdown>
+  </div>
+  <div class="row product-all">
+    <div *ngFor="let item of product">
+    <app-product-display [product] = "item"></app-product-display>
+  </div>
+</div>
+</mat-drawer-content>
+</mat-drawer-container>
+</div>

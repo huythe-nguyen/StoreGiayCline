@@ -1,0 +1,55 @@
+<div class="container">
+  <mat-toolbar color="primary">
+    <div><span>WHALE</span></div>
+    <span class="example-spacer"></span>
+    <form>
+      <div>
+        <button mat-button class="header-menu" routerLink="/home" [matMenuTriggerFor]="menu1">Tất cả sản phẩm</button>
+        <mat-menu #menu1="matMenu">
+          <button mat-menu-item type="submit" (click)="search('new')">News</button>
+          <button mat-menu-item type="submit" (click)="search('seconhand')">Seconhand</button>
+        </mat-menu>
+        <button mat-button class="header-menu" routerLink="/">Sale</button>
+
+        <button mat-button class="header-menu" routerLink="/">Tin tức</button>
+        <section mat-section routerLink="/" [matMenuTriggerFor]="menu">About</section>
+        <mat-menu #menu="matMenu">
+          <option mat-menu-item>Item 1</option>
+          <option mat-menu-item>Item 2</option>
+        </mat-menu>
+
+      </div>
+    </form>
+    <span class="example-spacer"></span>
+    <div class="search">
+      <input class="input-search" matInput placeholder="Tìm kiếm">
+      <mat-icon>search</mat-icon>
+    </div>
+    <div><span class="example-spacer"></span>
+      <button mat-icon-button color="primary" aria-label="This is cart" routerLink="/gio-hang">
+        <mat-icon>local_mall</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" aria-label="This is login" routerLink="/login">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+      <app-category></app-category>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div>
+        <span>Tất cả sản phẩm</span>
+        <p-dropdown #drop (mouseenter)="drop.show()" (mouseleave)="drop.hide()" [options]="sorts"
+          [(ngModel)]="selectedCities" optionLabel="name"></p-dropdown>
+      </div>
+      <div class="row product-all">
+        <div *ngFor="let item of product">
+          <app-product-display [product]="item"></app-product-display>
+        </div>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

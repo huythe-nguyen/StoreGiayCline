@@ -1,0 +1,40 @@
+.nav{
+  display: flex;
+  flex-direction: column
+}
+.category-container{
+  padding: 20px;
+}
+.category-title{
+  font-size: 1.5em;
+  line-height: 2em;
+  font-weight: bold;
+}
+.category-title::after{
+  content: "";
+  height: 2px;
+  width: 100%;
+  background: red;
+  display: block;
+}
+:host ::ng-deep.p-panelmenu .p-panelmenu-header > a {
+  border-left: none;
+  border-right: none;
+  background: white;
+}
+:host ::ng-deep.p-panelmenu .p-panelmenu-header > a:hover{
+  cursor: pointer;
+  font-weight:bold;
+}
+:host ::ng-deep.p-panelmenu .p-panelmenu-header > a:last-child {
+  border-left: none;
+  border-right: none;
+  background: white;
+}
+label{
+  margin: 0;
+  margin-left: 8px;
+}
+.p-field-checkbox{
+  padding: 10px;
+}

@@ -1,0 +1,27 @@
+<div class="category-container">
+  <span class="category-title">Danh mục sản phẩm</span>
+  <p-panelMenu [model]="items" [style]="{'width':'200px'}">
+  </p-panelMenu>
+
+  <span class="category-title">Loại sản phẩm</span>
+  <div class="p-field-checkbox">
+    <p-checkbox name="group1" value="" [(ngModel)]="selectedCities" inputId="ny"></p-checkbox>
+    <label for="ny">New York</label>
+  </div>
+  <div class="p-field-checkbox">
+    <p-checkbox name="group1" value="San Francisco" [(ngModel)]="selectedCities" inputId="sf"></p-checkbox>
+    <label for="sf">San Francisco</label>
+  </div>
+  <div class="p-field-checkbox">
+    <p-checkbox name="group1" value="Los Angeles" [(ngModel)]="selectedCities" inputId="la"></p-checkbox>
+    <label for="la">Los Angeles</label>
+  </div>
+  <div class="p-field-checkbox">
+    <p-checkbox name="group1" value="Chicago" [(ngModel)]="selectedCities" inputId="ch"></p-checkbox>
+    <label for="ch">Chicago</label>
+  </div>
+
+  <span class="category-title">Mức giá</span>
+  <h3> {{rangeValues[0] + '0.000 đ' + ' - ' + rangeValues[1] + '00.000 đ'}}</h3>
+  <p-slider [(ngModel)]="rangeValues" [range]="true"></p-slider>
+</div>

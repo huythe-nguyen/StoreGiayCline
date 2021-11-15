@@ -14,7 +14,7 @@
 </div>
 <!-- Breadcrumb End -->
 
-<div *ngIf="items.length !=0">
+<div *ngIf="items.length !== 0">
 <!-- Cart Start -->
 <div class="container-fluid">
   <div class="row px-xl-5">
@@ -42,14 +42,14 @@
                               </div>
                               <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" [(ngModel)]="item.quantity" (input) = "changeQuantity(item)">
                               <div class="input-group-btn">
-                                  <button class="btn btn-sm btn-primary btn-plus" click)="addQuantity(item)">
+                                  <button class="btn btn-sm btn-primary btn-plus" (click)="addQuantity(item)">
                                       <i class="fa fa-plus"></i>
                                   </button>
                               </div>
                           </div>
                       </td>
                       <td class="align-middle">{{item.total}}</td>
-                      <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
+                      <td class="align-middle"><button class="btn btn-sm btn-danger" (click) = "removeItem(item)"><i class="fa fa-times"></i></button></td>
                   </tr>
                 </tbody>
               </table>
@@ -88,7 +88,7 @@
   </div>
   <!-- Cart End -->
 </div>
-<ng-container *ngIf="items.length == 0">
+<ng-container *ngIf="items.length === 0">
   <div class="container">
     <div class = "center-cart-empty">
       <img src = "https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90">

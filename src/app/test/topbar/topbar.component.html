@@ -11,9 +11,9 @@
       <div class="col-lg-4 col-6 text-left">
           <form action="">
               <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Search for products">
+                  <input type="text" class="form-control" [(ngModel)] ="searchTerm" name ="searchTerm" (keyup)="search($event)" placeholder="Search for products">
                   <div class="input-group-append">
-                      <span class="input-group-text bg-transparent text-primary">
+                      <span class="input-group-text bg-transparent text-primary" routerLink = "/search">
                           <i class="fa fa-search"></i>
                       </span>
                   </div>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
 import { ProductService } from '../service/product.service';
 import { RestApiService } from '../service/rest-api.service';
-import {Product} from './../common/product';
+import {Product} from './../models/product';
 
 @Component({
   selector: 'app-body-home',
@@ -15,7 +15,7 @@ export class BodyHomeComponent implements OnInit {
   products!: Product[];
   btnDisabled= false;
 
-  url='http://localhost:3000/api/v1/admin/product'
+  url='http://localhost:3000/api/v1/user/product'
   constructor(private rest:RestApiService,
     private data: DataService) { }
 

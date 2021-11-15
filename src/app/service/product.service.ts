@@ -17,7 +17,7 @@ getProById(id: any){
   return this.httpClient.get(this.url+'/'+id)
 }
 getProduct(){
-  return this.httpClient.get<any>("http://localhost:3000/api/v1/admin/product")
+  return this.httpClient.get<any>("http://localhost:3000/api/v1/user/product")
   .pipe(map((res:any)=>{
     return res;
   }))

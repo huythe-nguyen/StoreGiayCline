@@ -27,12 +27,16 @@ export class CartComponent implements OnInit {
     })
   }
   addQuantity(item: CartItem){
+    if(item.quantity === null)
+    {
+      return;
+    }
     item.quantity+=1;
    this.cartService.addtoCart(item.product,item.quantity);
 
   }
   subQuantity(item: CartItem){
-    if(item.quantity === 1)
+    if(item.quantity === 1 || item.quantity === null || item.quantity <= 0)
     {
       return;
     }
@@ -44,6 +48,7 @@ export class CartComponent implements OnInit {
     console.log(item);
     if(item.quantity === null)
     {
+      item.quantity = 1;
       return;
     }
     this.cartService.addtoCart(item.product,item.quantity);

@@ -15,18 +15,19 @@ export class BodyHomeComponent implements OnInit {
   products!: Product[];
   btnDisabled= false;
 
-  url='http://localhost:3000/api/v1/user/product'
+  url='http://localhost:3000/api/v1/user/product';
   constructor(private rest:RestApiService,
     private data: DataService) { }
 
   ngOnInit(): void {
     this.btnDisabled=true;
-    this.rest.search(this.url,'sale').then(data=>{
-      this.product =( data as {product: Product[]}).product;
+    this.rest.search(this.url,{selling:"sale"}).then((data:any)=>{
+      this.product = data.data.data as Product[];
+      console.log(data);
       this.btnDisabled=false;
     })
-    this.rest.search(this.url,'new').then(data=>{
-      this.products =( data as {product: Product[]}).product;
+    this.rest.search(this.url,{status:'new'}).then((data:any)=>{
+      this.products =data.data.data as Product[];
       this.btnDisabled=false;
     })
   }

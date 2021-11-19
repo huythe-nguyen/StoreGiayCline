@@ -11,6 +11,8 @@ export class CartService {
   public cartItemList : CartItem[] =[];
   public productList = new BehaviorSubject<any>([]);
   public search = new BehaviorSubject<string>("");
+  public filterP = new BehaviorSubject<string>("");
+
 
   constructor() {}
   getProducts(){

@@ -48,7 +48,7 @@
                               </div>
                           </div>
                       </td>
-                      <td class="align-middle">{{item.total}}</td>
+                      <td class="align-middle" [(ngModel)]="item.total">{{item.total}}</td>
                       <td class="align-middle"><button class="btn btn-sm btn-danger" (click) = "removeItem(item)"><i class="fa fa-times"></i></button></td>
                   </tr>
                 </tbody>

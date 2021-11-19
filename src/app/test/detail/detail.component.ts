@@ -20,7 +20,7 @@ export class DetailComponent implements OnInit {
   key='';
   id: any;
   quantity: number;
-  url='http://localhost:3000/api/v1/admin/product'
+  url='http://localhost:3000/api/v1/user/product'
 
   addtocart(item: Product, quantity: number){
     if(quantity === null){
@@ -64,13 +64,13 @@ export class DetailComponent implements OnInit {
         this.data.error(error['message']);
       })
     }else{
-      this.rest.search(this.url,this.key).then(data=>{
-        this.product =( data as {product: Product[]}).product;
-        this.btnDisabled=false;
-      })
-      .catch(error=>{
-        this.data.error(error['message']);
-      })
+      // this.rest.search(this.url,this.key).then(data=>{
+      //   this.product =( data as {product: Product[]}).product;
+      //   this.btnDisabled=false;
+      // })
+      // .catch(error=>{
+      //   this.data.error(error['message']);
+      // })
     }
   }
 

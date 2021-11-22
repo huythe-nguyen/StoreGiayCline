@@ -6,26 +6,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
-// import { MatToolbarModule } from '@angular/material/toolbar';
-// import { MatButtonModule } from '@angular/material/button';
-// import { MatSidenavModule } from '@angular/material/sidenav';
-// import { MatIconModule } from '@angular/material/icon';
-// import { MatListModule } from '@angular/material/list';
-// import {MatMenuModule} from '@angular/material/menu';
-// import {MatFormFieldModule} from '@angular/material/form-field';
+
 import { BodyHomeComponent } from './body-home/body-home.component';
-import {IvyCarouselModule} from 'angular-responsive-carousel';
+// import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { ProductDisplayComponent } from './components/product-display/product-display.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ImageModule} from 'primeng/image';
+// import {ImageModule} from 'primeng/image';
 import {LoginComponent} from './components/login/login.component';
-// import {CheckboxModule} from 'primeng/checkbox';
-import {PanelMenuModule} from 'primeng/panelmenu';
-// import {DropdownModule} from 'primeng/dropdown';
 import {DialogModule} from 'primeng/dialog';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -42,6 +33,8 @@ import { CartComponent } from './test/cart/cart.component';
 import { CheckoutComponent } from './test/checkout/checkout.component';
 import { SearchProductComponent } from './components/search-product/search-product.component';
 import { FilterPipe } from './shared/filter.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+import {SliderModule} from 'primeng/slider';
 
 
 @NgModule({
@@ -70,24 +63,17 @@ import { FilterPipe } from './shared/filter.pipe';
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
-    // MatToolbarModule,
-    // MatButtonModule,
-    // MatSidenavModule,
-    // MatIconModule,
-    // MatListModule,
-    // MatMenuModule,
-    // MatFormFieldModule,
     NgbModule,
     CarouselModule,
     ButtonModule,
     ToastModule,
     FormsModule,
-    ImageModule,
     NgbModule,
-    PanelMenuModule,
+    SliderModule,
     DialogModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [RestApiService, DataService],
   bootstrap: [AppComponent]

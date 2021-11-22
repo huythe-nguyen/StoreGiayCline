@@ -9717,3 +9717,15 @@ input[type="radio"] {
   -moz-appearance: checkbox;    /* Firefox */
   -ms-appearance: checkbox;     /* not currently supported */
 }
+::ng-deep .p-slider .p-slider-range {
+  background: #FFD333 !important;
+}
+::ng-deep .p-slider-handle{
+  border: 2px solid #FFD333 !important
+}
+::ng-deep .p-slider-handle:hover{
+  background: #FFD333 !important
+}
+.fizh{
+  min-height: 900px;
+}

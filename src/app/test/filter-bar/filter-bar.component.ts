@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { DataService } from 'src/app/service/data.service';
 import { ActivatedRoute, Router } from '@angular/router';
+//import { MatPaginator } from '@angular/material';
 
 @Component({
   selector: 'app-filter-bar',
@@ -11,7 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class FilterBarComponent implements OnInit {
 
-
+ totalLength: number;
+ page:number = 1;
   gender: any;
   status: any;
   selling: any;
@@ -21,6 +23,7 @@ export class FilterBarComponent implements OnInit {
   price2: number;
   color: string;
   isColorChecked = false;
+  rangeValues: number[] = [100000,100000000];
 
   url='http://localhost:3000/api/v1/user/product';
 
@@ -30,8 +33,6 @@ export class FilterBarComponent implements OnInit {
     private data: DataService,
     private route: ActivatedRoute,
     private _router: Router){
-      // this.secondhand = route.snapshot.params['secondhand'];
-      // this.new = route.snapshot.params['new'];
     //   this.route.queryParams
     //   .subscribe(params => {
     //     console.log(params); // { orderby: "price" }
@@ -48,16 +49,28 @@ export class FilterBarComponent implements OnInit {
     //   }
     // );
     }
-    filterPrice(min: number, max: number){
-      this.price1 = min;
-      this.price2 =  max;
+    navigateToPrice(){
+     // element.checked = true;
+      // if(this.isColorChecked){
+      //   pri = '';}
+      this._router.navigate([], {
+       relativeTo: this.route,
+       queryParams: {
+         price1 : this.rangeValues[0],
+         price2: this.rangeValues[1],
+
+       },
+       queryParamsHandling: 'merge',
+       skipLocationChange: false
+     });
+    //  this.isColorChecked = !this.isColorChecked;
     }
-    navigateToFoo(color:string,element:any){
+    navigateToFoo(color:string){
       const checkboxRadio =document.getElementsByName('radio-checkbox');
       checkboxRadio.forEach((item:any)=>{
         item.checked = false;
       })
-      element.checked = true;
+     // element.checked = true;
       if(this.isColorChecked){
         color = '';}
       this._router.navigate([], {
@@ -87,28 +100,11 @@ export class FilterBarComponent implements OnInit {
       console.log(this.status);
       this.rest.search(this.url,{status:this.status,gender:this.gender,color:this.color,selling:this.selling,price1:this.price1,price2:this.price2}).then((data:any)=>{
         this.products =data.data.data as Product[];
-        console.log(data);
+        this.totalLength = data.data.data.length;
+        console.log(this.totalLength);
       }) // price
     }
   );
-    // this.btnDisabled=true;
-    // if(this.key==''){
-      // this.rest.get(this.url).then((data:any)=>{
-      //   this.products = data.data.data as Product[];
-      //   this.btnDisabled=false;
-      // })
-    //   .catch(error=>{
-    //     this.data.error(error['message']);
-    //   })
-    // }else{
-    //   // this.rest.search(this.url,this.key).then(data=>{
-    //   //   this.products =( data as {products: Product[]}).products;
-    //   //   this.btnDisabled=false;
-    //   // })
-    //   // .catch(error=>{
-    //   //   this.data.error(error['message']);
-    //   // })
-    // }
 
   }
 }

@@ -14,7 +14,7 @@ import { SearchProductComponent } from './components/search-product/search-produ
 const routes: Routes = [
   { path: 'checkout', component:CheckoutComponent  },
   { path: 'cart', component:CartComponent  },
-  { path: 'homes/:fillter', component:HomeComponent  },
+  { path: 'homes', component: HomeComponent },
   { path: 'detail/:id', component: DetailComponent },
   { path: '', component: BodyHomeComponent },
   { path: 'register', component: RegisterComponent },

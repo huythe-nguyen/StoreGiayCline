@@ -18,11 +18,11 @@
                           <a href="" class="dropdown-item">Other</a>
                       </div>
                   </div>
-                  <a routerLink="/homes/new" class="nav-item nav-link" (click)="fillP('new')">New</a>
-                  <a routerLink="/homes/nam" class="nav-item nav-link" (click)="fillP('nam')" >SecondHand</a>
-                  <a href="" class="nav-item nav-link">Men</a>
-                  <a href="" class="nav-item nav-link">Women</a>
-                  <a href="" class="nav-item nav-link">Sale</a>
+                  <a (click)="navigateToFoo('new')" class="nav-item nav-link" >New</a>
+                  <a (click)="navigateToFoo('seconhand')" class="nav-item nav-link">SecondHand</a>
+                  <a (click)="navigateToFoo('nam')" class="nav-item nav-link">Men</a>
+                  <a (click)="navigateToFoo('nu')" class="nav-item nav-link">Women</a>
+                  <a (click)="navigateToFoo('sale')" class="nav-item nav-link">Sale</a>
               </div>
           </nav>
       </div>
@@ -38,7 +38,7 @@
               <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                   <div class="navbar-nav mr-auto py-0">
                       <a routerLink="/" class="nav-item nav-link">Home</a>
-                      <a routerLink="/homes/all" class="nav-item nav-link active">Shop</a>
+                      <a routerLink="/homes" class="nav-item nav-link active">Shop</a>
                       <a routerLink="" class="nav-item nav-link">News</a>
                       <a href="contact.html" class="nav-item nav-link">About</a>
                   </div>

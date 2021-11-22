@@ -9711,3 +9711,9 @@ a.text-dark:hover, a.text-dark:focus {
     transform: translateY(-15px);
   }
 }
+
+input[type="radio"] {
+  -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
+  -moz-appearance: checkbox;    /* Firefox */
+  -ms-appearance: checkbox;     /* not currently supported */
+}

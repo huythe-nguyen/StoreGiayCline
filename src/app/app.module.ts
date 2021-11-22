@@ -20,7 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ImageModule} from 'primeng/image';
 import {LoginComponent} from './components/login/login.component';
 // import {CheckboxModule} from 'primeng/checkbox';
@@ -42,6 +42,7 @@ import { CartComponent } from './test/cart/cart.component';
 import { CheckoutComponent } from './test/checkout/checkout.component';
 import { SearchProductComponent } from './components/search-product/search-product.component';
 import { FilterPipe } from './shared/filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { FilterPipe } from './shared/filter.pipe';
     PanelMenuModule,
     DialogModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [RestApiService, DataService],
   bootstrap: [AppComponent]

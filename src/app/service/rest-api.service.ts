@@ -18,7 +18,7 @@ get(link:string){
     return this.http.get(link +'/', {headers: headers}).toPromise();
   return this.http.get(link +'/').toPromise();
 }
-search(link: string,option?:{status?: string, gender?: string, selling?:string,color?: string}){
+search(link: string,option?:{status?: string, gender?: string, selling?:string,color?: string,price1?: number,price2?:number}){
   let headers= this.getHeaders();
   let param = new HttpParams();
   if(option){
@@ -32,11 +32,24 @@ search(link: string,option?:{status?: string, gender?: string, selling?:string,c
       param =param.set("selling",option.selling);
     }
     if(option.color){
-      param =param.set("color",option.color);
+      param =param.set("colour",option.color);
+    }
+    if(option.price1){
+      param =param.set("price[gte]",option.price1);
+    }
+    if(option.price2){
+      param =param.set("price[lte]",option.price2);
     }
   }
   console.log(option);
-  console.log("http",this.http.get(link, {params: param}))
+  if(headers instanceof HttpHeaders)
+    return this.http.get(link, {headers: headers,params:param}).toPromise();
+  return this.http.get(link,{params: param} ).toPromise();
+}
+filPrice(link: string,option:{price: number}){
+  let headers= this.getHeaders();
+  let param = new HttpParams()
+  .set("price[gte]",option.price);
   if(headers instanceof HttpHeaders)
     return this.http.get(link, {headers: headers,params:param}).toPromise();
   return this.http.get(link,{params: param} ).toPromise();

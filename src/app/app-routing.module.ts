@@ -4,12 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { BodyHomeComponent } from './body-home/body-home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { ProductCartComponent } from './components/product-cart/product-cart.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CartComponent } from './test/cart/cart.component';
 import { DetailComponent } from './test/detail/detail.component';
 import { HomeComponent } from './test/home/home.component';
 import { SearchProductComponent } from './components/search-product/search-product.component';
+import { InformationComponent } from './test/information/information.component';
 
 const routes: Routes = [
   { path: 'checkout', component:CheckoutComponent  },
@@ -19,8 +19,8 @@ const routes: Routes = [
   { path: '', component: BodyHomeComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'gio-hang', component: ProductCartComponent},
   { path: 'search', component: SearchProductComponent },
+  { path: 'information', component: InformationComponent},
   { path: '**', component: PageNotFoundComponent },
 
 ];

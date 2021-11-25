@@ -18,9 +18,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 // import {ImageModule} from 'primeng/image';
 import {LoginComponent} from './components/login/login.component';
 import {DialogModule} from 'primeng/dialog';
-import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductCartComponent } from './components/product-cart/product-cart.component';
 import { RestApiService } from './service/rest-api.service';
 import { DataService } from './service/data.service';
 import { RegisterComponent } from './components/register/register.component';
@@ -35,7 +33,8 @@ import { SearchProductComponent } from './components/search-product/search-produ
 import { FilterPipe } from './shared/filter.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {SliderModule} from 'primeng/slider';
-
+import { InformationComponent } from './test/information/information.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -43,8 +42,6 @@ import {SliderModule} from 'primeng/slider';
     BodyHomeComponent,
     ProductDisplayComponent,
     LoginComponent,
-    ProductDetailComponent,
-    ProductCartComponent,
     RegisterComponent,
     TopbarComponent,
     DetailComponent,
@@ -56,6 +53,8 @@ import {SliderModule} from 'primeng/slider';
     CheckoutComponent,
     SearchProductComponent,
     FilterPipe,
+    InformationComponent,
+    PageNotFoundComponent
 
   ],
   imports: [

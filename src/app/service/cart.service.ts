@@ -14,7 +14,10 @@ export class CartService {
   public filterP = new BehaviorSubject<string>("");
 
 
-  constructor() {}
+  constructor() {
+    const jsonData = JSON.stringify(this.cartItemList);
+    localStorage.setItem('myData', jsonData)
+  }
   getProducts(){
     const dataCart = JSON.parse(localStorage.getItem('myData')!);
     this.productList.next(dataCart);

@@ -98,7 +98,9 @@ export class FilterBarComponent implements OnInit {
       this.price1 = params.price1;
       this.price2 = params.price2;
       console.log(this.status);
-      this.rest.search(this.url,{status:this.status,gender:this.gender,color:this.color,selling:this.selling,price1:this.price1,price2:this.price2}).then((data:any)=>{
+      this.rest.search(this.url,{status:this.status,gender:this.gender,
+                                  color:this.color,selling:this.selling,
+                                  price1:this.price1,price2:this.price2}).then((data:any)=>{
         this.products =data.data.data as Product[];
         this.totalLength = data.data.data.length;
         console.log(this.totalLength);

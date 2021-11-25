@@ -21,13 +21,20 @@
           </form>
       </div>
       <div class="col-lg-4 col-6 text-right">
-        <div class="btn-group">
+        <div class="btn-group" *ngIf="!data.employee">
           <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
           <div class="dropdown-menu dropdown-menu-right">
               <button class="dropdown-item" type="submit" routerLink="/login">Sign in</button>
               <button class="dropdown-item" type="button">Sign up</button>
           </div>
-      </div>
+       </div>
+       <div class="btn-group" *ngIf="data.employee">
+        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">{{data.employee.displayName}}</button>
+        <div class="dropdown-menu dropdown-menu-right">
+            <button class="dropdown-item" type="submit" routerLink="/information">Profile</button>
+            <button class="dropdown-item" type="button" (click)="logout()">Logout</button>
+        </div>
+     </div>
       </div>
 
   </div>

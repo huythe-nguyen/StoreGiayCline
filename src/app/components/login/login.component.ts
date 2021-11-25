@@ -28,13 +28,16 @@ export class LoginComponent implements OnInit {
   async login(){
     this.btnDisabled=true;
     if(this.validate()){
-      this.rest.post(this.url,this.employee).then(data=>{
-        let value = data as { user: string,tokens:string}
-
-        localStorage.setItem('tokens',value.tokens);
-        //
-        console.log('user', value.user)
-        this.router.navigate(['/tat-ca-san-pham'])
+      this.rest.post(this.url,this.employee).then(async(data:any)=>{
+        let value = (data as { user: string,token:string})
+        console.log(value);
+       var token = value.token;
+        console.log('tken',atob(token.split('.')[1]));
+        localStorage.setItem('tokens',value.token);
+        var item = localStorage.getItem('tokens');
+  //      await this.data.getProfile();
+        console.log('user', item);
+        this.router.navigate(['/homes'])
 
 
       })

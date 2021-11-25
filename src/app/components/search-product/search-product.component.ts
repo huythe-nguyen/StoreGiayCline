@@ -17,7 +17,7 @@ export class SearchProductComponent implements OnInit {
 
   ngOnInit() {
     this.productService.getProduct().subscribe((res: any) =>{
-      this.productList = res.products;
+      this.productList = res.data.data;
       this.filterCategory = res;
       console.log(res);
     })

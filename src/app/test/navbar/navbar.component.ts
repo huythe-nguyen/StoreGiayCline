@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CartItem } from 'src/app/common/cart';
+import { CartService } from 'src/app/service/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,10 +13,20 @@ export class NavbarComponent implements OnInit {
   public status : string = '';
   public gender : string = '';
   public selling : string = '';
+  cart:  CartItem[] = [];
+  totalItem: number = 0;
+
   constructor(private route: ActivatedRoute,
-    private _router: Router) { }
+    private _router: Router,
+    private cartService: CartService) { }
 
   ngOnInit() {
+    this.cartService.getProducts()
+    .subscribe((res: any)=>{
+      this.cart = res;
+      if(this.cart !== null) {
+      this.totalItem = this.cart.length;}
+    })
   }
   navigateToFoo(filter: string){
     if(filter === 'new' || filter === 'seconhand'){

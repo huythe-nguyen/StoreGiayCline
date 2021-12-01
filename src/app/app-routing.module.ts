@@ -10,6 +10,11 @@ import { DetailComponent } from './test/detail/detail.component';
 import { HomeComponent } from './test/home/home.component';
 import { SearchProductComponent } from './components/search-product/search-product.component';
 import { InformationComponent } from './test/information/information.component';
+import { ProfileComponent } from './test/information/profile/profile.component';
+import { ChangePasswordComponent } from './test/information/changePassword/changePassword.component';
+import { OrderHistoryComponent } from './test/information/order-history/order-history.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/forgot-password/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: 'checkout', component:CheckoutComponent  },
@@ -20,7 +25,13 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'search', component: SearchProductComponent },
-  { path: 'information', component: InformationComponent},
+  { path: 'information', component: InformationComponent, children: [
+    { path: 'profile', component: ProfileComponent},
+    { path: 'changPassword', component: ChangePasswordComponent},
+    { path: 'history', component: OrderHistoryComponent},
+  ]},
+  { path: 'forgotPassword', component: ForgotPasswordComponent },
+  { path: 'resetPassword/:token', component: ResetPasswordComponent },
   { path: '**', component: PageNotFoundComponent },
 
 ];

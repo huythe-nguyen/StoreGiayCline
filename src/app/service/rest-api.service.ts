@@ -78,4 +78,16 @@ delete(link: string , id: string){
     return this.http.delete(link +'/'+ id, {headers: headers}).toPromise();
   return this.http.delete(link +'/'+ id ).toPromise();
 }
+patch(link: string, body: any){
+  let headers= this.getHeaders();
+  if(headers instanceof HttpHeaders)
+    return this.http.patch(link,body, {headers: headers}).toPromise();
+  return this.http.patch(link,body).toPromise();
+}
+patchToken(link: string,token: string,body: any){
+  let headers= this.getHeaders();
+  if(headers instanceof HttpHeaders)
+    return this.http.patch(link +'/'+ token,body, {headers: headers}).toPromise();
+  return this.http.patch(link +'/'+ token,body).toPromise();
+}
 }

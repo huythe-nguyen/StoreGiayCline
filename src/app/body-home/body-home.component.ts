@@ -21,12 +21,12 @@ export class BodyHomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.btnDisabled=true;
-    this.rest.search(this.url,{selling:"sale"}).then((data:any)=>{
+    this.rest.search(this.url,{selling:"News"}).then((data:any)=>{
       this.product = data.data.data as Product[];
       console.log(data);
       this.btnDisabled=false;
     })
-    this.rest.search(this.url,{status:'new'}).then((data:any)=>{
+    this.rest.search(this.url,{status:'seconhand'}).then((data:any)=>{
       this.products =data.data.data as Product[];
       this.btnDisabled=false;
     })

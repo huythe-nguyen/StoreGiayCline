@@ -22,8 +22,11 @@ export class FilterBarComponent implements OnInit {
   price1: number;
   price2: number;
   color: string;
+  size: number;
+  brand:string;
   isColorChecked = false;
-  rangeValues: number[] = [100000,100000000];
+  isSizeChecked = false;
+  rangeValues: number[] = [100000,10000000];
 
   url='http://localhost:3000/api/v1/user/product';
 
@@ -65,6 +68,32 @@ export class FilterBarComponent implements OnInit {
      });
     //  this.isColorChecked = !this.isColorChecked;
     }
+    navigateToBrand(brand:string){
+      const checkboxRadio =document.getElementsByName('radio-checkbox');
+      checkboxRadio.forEach((item:any)=>{
+        item.checked = false;
+      })
+     // element.checked = true;
+      if(this.isColorChecked){
+        brand = '';
+        this.ngOnInit();
+      }
+      this._router.navigate([], {
+       relativeTo: this.route,
+       queryParams: {
+        status : this.status,
+        size : this.size,
+        color : this.color,
+         brand : brand,
+      //   price1: color,
+
+       },
+       queryParamsHandling: 'merge',
+       skipLocationChange: false
+     });
+     this.isColorChecked = !this.isColorChecked;
+     this.ngOnInit();
+    }
     navigateToFoo(color:string){
       const checkboxRadio =document.getElementsByName('radio-checkbox');
       checkboxRadio.forEach((item:any)=>{
@@ -72,11 +101,15 @@ export class FilterBarComponent implements OnInit {
       })
      // element.checked = true;
       if(this.isColorChecked){
-        color = '';}
+        color = '';
+        this.ngOnInit();
+      }
       this._router.navigate([], {
        relativeTo: this.route,
        queryParams: {
          status : this.status,
+         size : this.size,
+         brand:this.brand,
          color : color,
       //   price1: color,
 
@@ -85,6 +118,33 @@ export class FilterBarComponent implements OnInit {
        skipLocationChange: false
      });
      this.isColorChecked = !this.isColorChecked;
+     this.ngOnInit();
+    }
+    navigateToSize(size:number){
+      const checkboxRadio =document.getElementsByName('radio-checkbox');
+      checkboxRadio.forEach((item:any)=>{
+        item.checked = false;
+      })
+     // element.checked = true;
+      if(this.isSizeChecked){
+        size = 40;
+        this.ngOnInit();
+      }
+      this._router.navigate([], {
+       relativeTo: this.route,
+       queryParams: {
+         status : this.status,
+         size : size,
+         brand:this.brand,
+         color : this.color
+      //   price1: color,
+
+       },
+       queryParamsHandling: 'merge',
+       skipLocationChange: false
+     });
+     this.isSizeChecked = !this.isSizeChecked;
+     this.ngOnInit();
     }
 
   ngOnInit(){
@@ -97,10 +157,13 @@ export class FilterBarComponent implements OnInit {
       this.color = params.color;
       this.price1 = params.price1;
       this.price2 = params.price2;
+      this.size = params.size;
+      this.brand=params.brand
       console.log(this.status);
       this.rest.search(this.url,{status:this.status,gender:this.gender,
                                   color:this.color,selling:this.selling,
-                                  price1:this.price1,price2:this.price2}).then((data:any)=>{
+                                  price1:this.price1,price2:this.price2,
+                                  size:this.size,brand:this.brand}).then((data:any)=>{
         this.products =data.data.data as Product[];
         this.totalLength = data.data.data.length;
         console.log(this.totalLength);

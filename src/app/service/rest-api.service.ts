@@ -18,7 +18,7 @@ get(link:string){
     return this.http.get(link +'/', {headers: headers}).toPromise();
   return this.http.get(link +'/').toPromise();
 }
-search(link: string,option?:{status?: string, gender?: string, selling?:string,color?: string,price1?: number,price2?:number}){
+search(link: string,option?:{status?: string, gender?: string, selling?:string,color?: string,price1?: number,price2?:number,size?:number, brand?:string}){
   let headers= this.getHeaders();
   let param = new HttpParams();
   if(option){
@@ -39,6 +39,12 @@ search(link: string,option?:{status?: string, gender?: string, selling?:string,c
     }
     if(option.price2){
       param =param.set("price[lte]",option.price2);
+    }
+    if(option.size){
+      param =param.set("size",option.size);
+    }
+    if(option.brand){
+      param =param.set("brand",option.brand);
     }
   }
   console.log(option);
@@ -77,5 +83,17 @@ delete(link: string , id: string){
   if(headers instanceof HttpHeaders)
     return this.http.delete(link +'/'+ id, {headers: headers}).toPromise();
   return this.http.delete(link +'/'+ id ).toPromise();
+}
+patch(link: string, body: any){
+  let headers= this.getHeaders();
+  if(headers instanceof HttpHeaders)
+    return this.http.patch(link,body, {headers: headers}).toPromise();
+  return this.http.patch(link,body).toPromise();
+}
+patchToken(link: string,token: string,body: any){
+  let headers= this.getHeaders();
+  if(headers instanceof HttpHeaders)
+    return this.http.patch(link +'/'+ token,body, {headers: headers}).toPromise();
+  return this.http.patch(link +'/'+ token,body).toPromise();
 }
 }

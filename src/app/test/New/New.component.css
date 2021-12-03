@@ -2374,19 +2374,7 @@ fieldset:disabled a.btn {
   background-color: #ffcb0d;
   border-color: #ffc800;
 }
-.btn-primary1 {
-  width: 200px;
-  color: #212529;
-  background-color: white;
-  border-color: white;
-}
 
-.btn-primary1:hover {
-  width: 200px;
-  color: #212529;
-  background-color: #fdc704;
-  border-color: #fcc605;
-}
 .btn-primary:focus, .btn-primary.focus {
   color: #212529;
   background-color: #ffcb0d;
@@ -9722,22 +9710,4 @@ a.text-dark:hover, a.text-dark:focus {
   100% {
     transform: translateY(-15px);
   }
-}
-
-input[type="radio"] {
-  -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
-  -moz-appearance: checkbox;    /* Firefox */
-  -ms-appearance: checkbox;     /* not currently supported */
-}
-::ng-deep .p-slider .p-slider-range {
-  background: #FFD333 !important;
-}
-::ng-deep .p-slider-handle{
-  border: 2px solid #FFD333 !important
-}
-::ng-deep .p-slider-handle:hover{
-  background: #FFD333 !important
-}
-.fizh{
-  min-height: 980px;
 }

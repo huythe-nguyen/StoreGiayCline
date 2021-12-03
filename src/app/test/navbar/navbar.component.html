@@ -1,4 +1,5 @@
- <!-- Navbar Start -->
+
+<!-- Navbar Start -->
  <div class="container-fluid bg-dark mb-30">
   <div class="row px-xl-5">
       <div class="col-lg-3 d-none d-lg-block">
@@ -10,12 +11,13 @@
               <div class="navbar-nav w-100">
                   <div class="nav-item dropdown dropright">
                       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Brand<i class="fa fa-angle-right float-right mt-1"></i></a>
-                      <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                          <a href="" class="dropdown-item">Nike</a>
-                          <a href="" class="dropdown-item">Adidas</a>
-                          <a href="" class="dropdown-item">Puma</a>
-                          <a href="" class="dropdown-item">Converse</a>
-                          <a href="" class="dropdown-item">Other</a>
+                      <div  class="dropdown-menu position-absolute rounded-0 border-0 m-0">
+                        <a routerLink="/homes" class="dropdown-item">All</a>
+                          <a  (click)="navigateToFoo('Nike')"class="dropdown-item">Nike</a>
+                          <a (click)="navigateToFoo('Adidas')" class="dropdown-item">Adidas</a>
+                          <a (click)="navigateToFoo('Puma')" class="dropdown-item">Puma</a>
+                          <a (click)="navigateToFoo('Converse')" class="dropdown-item">Converse</a>
+                          <a (click)="navigateToFoo('Other')" class="dropdown-item">Other</a>
                       </div>
                   </div>
                   <a (click)="navigateToFoo('new')" class="nav-item nav-link" >New</a>
@@ -38,9 +40,9 @@
               <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                   <div class="navbar-nav mr-auto py-0">
                       <a routerLink="/" class="nav-item nav-link">Home</a>
-                      <a routerLink="/homes" class="nav-item nav-link active">Shop</a>
-                      <a routerLink="" class="nav-item nav-link">News</a>
-                      <a href="contact.html" class="nav-item nav-link">About</a>
+                      <a routerLink="/homes" class="nav-item nav-link">Shop</a>
+                      <a routerLink="/new" class="nav-item nav-link">News</a>
+                      <a  routerLink="/about" class="nav-item nav-link">About</a>
                   </div>
                   <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                       <a routerLink="/cart" class="btn px-0 ml-3">

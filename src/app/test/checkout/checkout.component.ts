@@ -10,6 +10,8 @@ export class CheckoutComponent implements OnInit {
 
   public items : any = [];
   public grandTotal !: number;
+  core=30000
+  public Total !: number;
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
@@ -17,7 +19,9 @@ export class CheckoutComponent implements OnInit {
     .subscribe(res=>{
       this.items = res;
       this.grandTotal = this.cartService.getTotalPrice();
+      this.Total = this.cartService.getTotalPrice()+this.core;
       console.log(this.items);
+      console.log(this.grandTotal);
     })
   }
 

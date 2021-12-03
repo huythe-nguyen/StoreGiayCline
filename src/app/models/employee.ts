@@ -3,10 +3,12 @@ export class Employee {
   displayName!: string;
   password!: string;
   email!:string;
-  zone!: string;
-  image!:string;
+  lastName!: string;
+  firstName!:string;
   role!:string;
   phone!: string;
-  enrollDate!: Date;
-  status!: string;
+  HPBD!: Date;
+  address!: string;
+  country!: string;
+  city!: string;
 }

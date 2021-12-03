@@ -35,6 +35,20 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import {SliderModule} from 'primeng/slider';
 import { InformationComponent } from './test/information/information.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { ChangePasswordComponent } from './test/information/changePassword/changePassword.component';
+import { ProfileComponent } from './test/information/profile/profile.component';
+import { OrderHistoryComponent } from './test/information/order-history/order-history.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/forgot-password/reset-password/reset-password.component';
+import { AboutComponent } from './test/about/about.component';
+import { NewComponent } from './test/New/New.component';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +68,14 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     SearchProductComponent,
     FilterPipe,
     InformationComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProfileComponent,
+    ChangePasswordComponent,
+    OrderHistoryComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
+    AboutComponent,
+    NewComponent
 
   ],
   imports: [
@@ -72,7 +93,13 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     DialogModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatDividerModule,
+    MatListModule,
   ],
   providers: [RestApiService, DataService],
   bootstrap: [AppComponent]

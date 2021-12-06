@@ -33,7 +33,7 @@ export class CartComponent implements OnInit {
     }
     item.quantity+=1;
    this.cartService.addtoCart(item.product,item.quantity);
-
+   this.ngOnInit();
   }
   subQuantity(item: CartItem){
     if(item.quantity === 1 || item.quantity === null || item.quantity <= 0)
@@ -43,6 +43,7 @@ export class CartComponent implements OnInit {
     else
       item.quantity-=1;
       this.cartService.addtoCart(item.product,item.quantity);
+      this.ngOnInit();
   }
   changeQuantity(item: CartItem){
     console.log(item);
@@ -52,7 +53,7 @@ export class CartComponent implements OnInit {
       return;
     }
     this.cartService.addtoCart(item.product,item.quantity);
-    console.log()
+    this.ngOnInit();
   }
   clearCart(){
     this.cartService.removeAllCart();

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-6 login-section-wrapper">
       <div class="brand-wrapper">
-        <img src="assets/images/logo.svg" alt="logo" class="logo" />
+        <img src="assets/images/logo.PNG" alt="logo" class="logo" />
       </div>
       <div class="login-wrapper my-auto">
         <h1 class="login-title">Log in</h1>
@@ -29,6 +29,7 @@
               placeholder="enter your passsword"
             />
           </div>
+          <app-message></app-message>
           <input
             name="login"
             id="login"
@@ -38,7 +39,7 @@
             value="Login"
           />
         </form>
-        <a href="#!" class="forgot-password-link">Forgot password?</a>
+        <a routerLink="/forgotPassword" class="forgot-password-link">Forgot password?</a>
         <p class="login-wrapper-footer-text">Don't have an account? <a routerLink="/register" class="text-reset">Register here</a></p>
       </div>
     </div>

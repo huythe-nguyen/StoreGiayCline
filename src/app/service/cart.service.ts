@@ -15,8 +15,14 @@ export class CartService {
 
 
   constructor() {
-    const jsonData = JSON.stringify(this.cartItemList);
+    var temp = JSON.parse(localStorage.getItem('myData')!);
+   if(temp === null)
+   {
+    const jsonData = JSON.stringify(this.cartItemList)
     localStorage.setItem('myData', jsonData)
+   }else{
+    this.cartItemList = JSON.parse(localStorage.getItem('myData')!);
+   }
   }
   getProducts(){
     const dataCart = JSON.parse(localStorage.getItem('myData')!);

@@ -23,8 +23,6 @@ export class ForgotPasswordComponent implements OnInit {
    ) {
 
   }
-
-
   ngOnInit() {
 
     this.RequestResetForm = new FormGroup({

@@ -15,10 +15,7 @@ export class CartComponent implements OnInit {
   public grandTotal !: number;
   cart:Carts;
   addCart = false;
-  constructor(private cartService: CartService,
-    private data: DataService,
-    private rest: RestApiService,
-    private fb: FormBuilder) {
+  constructor(private cartService: CartService) {
       this.cart=new Carts;
     }
   removeItem(item: CartItem){

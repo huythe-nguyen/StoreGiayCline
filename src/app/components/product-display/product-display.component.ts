@@ -4,7 +4,7 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-product-display',
   templateUrl: './product-display.component.html',
-  styleUrls: ['./product-display.component.css','./product-display.component.scss'],
+  styleUrls: ['./product-display.component.css'],
   providers: [NgbModalConfig, NgbModal]
 })
 export class ProductDisplayComponent implements OnInit {

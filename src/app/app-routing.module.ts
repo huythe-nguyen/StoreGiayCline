@@ -17,6 +17,7 @@ import { OrderHistoryComponent } from './main/information/order-history/order-hi
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/forgot-password/reset-password/reset-password.component';
 import { AboutComponent } from './main/about/about.component';
+import { RegisterEmailComponent } from './components/register/register_email/register-email.component';
 
 const routes: Routes = [
   { path: 'new', component: NewComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'detail/:id', component: DetailComponent },
   { path: '', component: BodyHomeComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'registerEmail/:token', component: RegisterEmailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'search', component: SearchProductComponent },
   { path: 'information', component: InformationComponent, children: [

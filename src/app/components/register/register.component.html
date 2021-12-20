@@ -6,73 +6,33 @@
       </div>
       <div class="login-wrapper my-auto">
         <h1 class="login-title">Register</h1>
-        <form action="#!" [formGroup]="info">
-          <div class="form-group">
-            <label for="name">UserName</label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              [(ngModel)]="employee.displayName"
-              class="form-control"
-              placeholder="email@example.com"
-              formControlName="name"
-            />
-            <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!info.get('name')?.valid && (info.get('name')?.touched || info.get('name')?.dirty)" >
-              <i class="fa fa-times-circle" style="color:firebrick;"></i>
-              enter your UserName</small>
-               <i class="fa fa-check-circle" style="color:green;" *ngIf="info.controls.name.valid"></i>
+        <div>
+
+          <form action="" [formGroup]="RequestResetForm" (ngSubmit)="RequestResetUser(RequestResetForm)">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="email" type="text" id="email"
+                formControlName="email" />
+              <span *ngIf="!RequestResetForm.get('email') && !IsvalidForm" class="help-block">Please enter a valid
+                email!</span>
+            </div>
+            <div class="form-group">
+              <div>
+                <input name="login" id="login" class="btn btn-block login-btn" type="submit" value="Register" />
+              </div>
+            </div>
+          </form>
+          <div id="errorMsg" *ngIf="errorMessage">
+            <span style="color: red;">{{errorMessage}}</span>
           </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              [(ngModel)]="employee.email"
-              class="form-control"
-              placeholder="email@example.com"
-              formControlName="email"
-              />
-              <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!info.get('email')?.valid && info.get('email')?.touched " >
-                <i class="fa fa-times-circle" style="color:firebrick;"></i>
-                enter your email </small>
-                 <i class="fa fa-check-circle" style="color:green;" *ngIf="info.controls.email.valid"></i>
+          <div id="successMsg" *ngIf="successMessage">
+            <span style="color: aqua;">{{successMessage}}</span>
           </div>
-          <div class="form-group mb-4">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              [(ngModel)]="employee.password"
-              class="form-control"
-              placeholder="enter your passsword"
-              formControlName="password"
-              />
-              <small id="nameBrandHelp" class="form-text text-muted err"  *ngIf="!info.get('password')?.valid && info.get('password')?.touched " >
-                <i class="fa fa-times-circle" style="color:firebrick;"></i>
-                enter your passsword with lengths between 6 and 16 </small>
-                 <i class="fa fa-check-circle" style="color:green;" *ngIf="info.controls.password.valid"></i>
-          </div>
-          <input
-            name="login"
-            id="login"
-            class="btn btn-block login-btn"
-            type="button"
-            [disabled]="info.valid"
-            (click)="register()"
-            value="Register"
-          />
-        </form>
+        </div>
       </div>
     </div>
     <div class="col-sm-6 px-0 d-none d-sm-block">
-      <img
-        src="assets/images/login.jpg"
-        alt="login image"
-        class="login-img"
-      />
+      <img src="assets/images/login.jpg" alt="login image" class="login-img" />
     </div>
   </div>
 </div>

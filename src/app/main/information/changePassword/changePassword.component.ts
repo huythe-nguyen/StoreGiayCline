@@ -18,9 +18,8 @@ export class ChangePasswordComponent implements OnInit {
   cnewPassword: FormControl;
   successMessage: string;
   errorMessage: string;
-  constructor(private fb: FormBuilder,
+  constructor(
     private rest: RestApiService,
-    private dataService: DataService,
     private router: Router) { }
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Employee } from 'src/app/models/employee';
 import { DataService } from 'src/app/service/data.service';
@@ -14,35 +14,52 @@ export class RegisterComponent implements OnInit {
 
   employee: Employee;
   saving= false;
-  url='http://localhost:3000/api/v1/auth/user/register'
-  constructor(private rest:RestApiService,
-    private data: DataService,
+  url='http://localhost:3000/api/v1/auth/user/registers'
+  RequestResetForm: FormGroup;
+  forbiddenEmails: any;
+  errorMessage: string;
+  successMessage: string;
+  IsvalidForm = true;
+
+  constructor(
+    private rest: RestApiService,
     private router: Router,
-    private fb: FormBuilder,) {
-      this.employee= new Employee;
-     }
+   ) {
 
-  ngOnInit() {
   }
-  info = this.fb.group({
-    "name":["",[Validators.required,Validators.minLength(2)]],
-    "email":["",[Validators.required,Validators.email]],
-    "password":["",[Validators.required,Validators.minLength(6),Validators.maxLength(16)]],
-  })
-  async register(){
-    this.saving=true;
-    if(this.info.valid){
-      this.rest.post(this.url,this.employee)
-      .then(data =>{
-        this.saving=false;
-        this.router.navigate(['/login'])
-      }).catch(error =>{
-        this.saving =false;
-        this.data.error('mess')
-      });
-    }else{
-      window.alert('vui lòng nhập đầy đủ thông tin')
-    }
-    }
+  ngOnInit() {
 
+    this.RequestResetForm = new FormGroup({
+      'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails),
+    });
+  }
+
+
+  RequestResetUser(form:any) {
+    console.log(form)
+    console.log(form.value.email);
+    var email = form.value;
+    if (form) {
+      this.IsvalidForm = true;
+      console.log(email)
+      this.rest.post(this.url,email).then(data => {
+          this.RequestResetForm.reset();
+          this.successMessage = "Reset password link send to email sucessfully.";
+          console.log(email);
+          setTimeout(() => {
+            this.successMessage = '';
+            this.router.navigate(['/login']);
+          }, 3000);
+        },
+        err => {
+
+          if (err.error.message) {
+            this.errorMessage = err.error.message;
+          }
+        }
+      );
+    } else {
+      this.IsvalidForm = false;
+    }
+  }
 }

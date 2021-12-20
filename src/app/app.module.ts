@@ -50,6 +50,7 @@ import { ResetPasswordComponent } from './components/forgot-password/reset-passw
 import { AboutComponent } from './main/about/about.component';
 import { NewComponent } from './main/New/New.component';
 import { DetailCartComponent } from './main/information/order-history/detail-cart/detail-cart.component';
+import { RegisterEmailComponent } from './components/register/register_email/register-email.component';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { DetailCartComponent } from './main/information/order-history/detail-car
     AboutComponent,
     NewComponent,
     DetailCartComponent,
-    MessageComponent
+    MessageComponent,
+    RegisterEmailComponent
 
   ],
   imports: [
@@ -104,6 +106,7 @@ import { DetailCartComponent } from './main/information/order-history/detail-car
     MatIconModule,
     MatDividerModule,
     MatListModule,
+
   ],
   providers: [RestApiService, DataService],
   bootstrap: [AppComponent]

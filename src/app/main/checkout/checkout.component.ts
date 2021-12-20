@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { CartService } from 'src/app/service/cart.service';
 import { CartItem } from 'src/app/common/cart';
 import { Order } from 'src/app/models/order';
 import { DataService } from 'src/app/service/data.service';
 import { RestApiService } from 'src/app/service/rest-api.service';
 import { FormBuilder, Validators  } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-checkout',
@@ -17,17 +18,22 @@ export class CheckoutComponent implements OnInit {
   public items : any = [];
   public grandTotal !: number;
   public Total !: number;
+  confirmMessage=''
   order: Order;
   idUser='';
   core=30000;
   checkout = false;
   url = 'http://localhost:3000/api/v1/cart/add'
-
+  confirm(confirmDialog: TemplateRef<any>){
+    this.confirmMessage = `Cảm ơn quý khách đã mua hàng của shop, quý khách vui lòng kiểm tra mail để theo dõi đơn hàng! ` ;
+    this.modalService.open(confirmDialog, {ariaDescribedBy: 'modal-basic-title'});
+  }
   constructor(private cartService: CartService,
     private data: DataService,
     private rest: RestApiService,
     private fb: FormBuilder,
-    private router: Router) {
+    private route: ActivatedRoute,
+    private modalService: NgbModal) {
       this.order = new Order;
     }
 
@@ -82,7 +88,7 @@ export class CheckoutComponent implements OnInit {
         this.data.error('Fail');
       });
       this.cartService.removeAllCart();
-      window.alert('Đặt hàng thành công, cảm ơn quý khách đã mua hàng của Shop!');
-      this.router.navigate(['/homes'])
+      // window.alert('Đặt hàng thành công, cảm ơn quý khách đã mua hàng của Shop!');
+      // this.router.navigate(['/homes'])
   }
 }
